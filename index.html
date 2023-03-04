@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dane o zanieczyszczeniu powietrza</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i&subset=latin-ext" rel="stylesheet">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<h1 class="gios-heading gios-heading--main"><b>Dane o zanieczyszczeniu powietrza</b></h1>
+
+<main class="report container">
+    <section class="datatable">
+        <h2>Utwórz subskrypcję</h2>
+        <form
+                class="datatable__row datatable__row--add"
+                method="POST"
+                action="http://localhost:8080/v1/gios/subscribe"
+                data-subscribe-form
+        >
+            <fieldset class="datatable__row-section datatable__row-section--input-section">
+                <label class="datatable__input-label">
+                    Adres e-mail
+                </label>
+                <input type="text" name="email" id="email" placeholder="e-mail" required minlength="3">
+                <h5 id="result"></h5>
+            </fieldset>
+            <fieldset class="datatable__row-section datatable__row-section--trello-section">
+                <label class="datatable__input-label">
+                    Wybierz miasto
+                </label>
+                <select class="datatable__select" name="city" data-city-select required>
+                    <option disabled selected>--- select a city ---</option>
+                </select>
+            </fieldset>
+            <div class='msg'></div>
+            <fieldset class="datatable__row-section datatable__row-section--button-section">
+                <button type="submit" data-task-add-button class="datatable__button">Zasubskrybuj</button>
+            </fieldset>
+            <div class='message'>
+                <h3>Subskrypcja wysłana</h3>
+                <h5>Prośba o potwierdzenie subskrypcji została wysłana na podany adres.<br> Potwierdź w ciągu 24 godzin.</h5>
+                <button id='ok_button'>OK</button>
+            </div>
+        </form>
+    </section>
+    <section class="datatable">
+        <h2>Aktualne dane pobrane z Głównego Inspektoratu Ochrony Środowiska</h2>
+        Legenda wartości indeksów:
+        <div class="datatable__report-container" data-reports-container>
+            <table id="legend" class="legend_table">
+                <tr>
+                    <td class="legend_table very_good">&nbsp;&nbsp;&nbsp;Bardzo dobry&nbsp;&nbsp;&nbsp;</td>
+                    <td class="legend_table good">&nbsp;&nbsp;&nbsp;Dobry&nbsp;&nbsp;&nbsp;</td>
+                    <td class="legend_table moderate">&nbsp;&nbsp;&nbsp;Umiarkowany&nbsp;&nbsp;&nbsp;</td>
+                    <td class="legend_table sufficient">&nbsp;&nbsp;&nbsp;Dostateczny&nbsp;&nbsp;&nbsp;</td>
+                    <td class="legend_table bad">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Zły&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td class="legend_table very_bad">&nbsp;&nbsp;&nbsp;Bardzo zły&nbsp;&nbsp;&nbsp;</td>
+                    <td class="undefined"><table border="1"><tr><td>&nbsp;&nbsp;&nbsp;Brak indeksu&nbsp;&nbsp;&nbsp;</td></tr></table></td>
+                </tr>
+            </table>
+            <p/>
+            <table id="reports-table" class="reports_table">
+                <thead id="reports-table-head">
+                </thead>
+                <tbody id="reports-table-body"></tbody>
+            </table>
+        </div>
+    </section>
+    <div>Dane pobrane z <a href="https://www.gios.gov.pl">https://www.gios.gov.pl</a></div>
+    <p></p>
+</main>
+
+<script src="jquery-3.6.0.min.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>

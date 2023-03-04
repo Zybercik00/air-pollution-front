@@ -1,0 +1,225 @@
+html {
+    background: url("images/IMG_2855.JPG") no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+input, textarea {
+    width: 100%;
+    padding: 5px;
+    margin: 0;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+@media (min-width: 768px) {
+    .container {
+        width: 750px; }
+}
+@media (min-width: 992px) {
+    .container {
+        width: 970px; }
+}
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px; }
+}
+.gios-heading--main {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+}
+.datatable__row {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin: 0;
+}
+.datatable__row-section-wrapper {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+.datatable__row:first-of-type {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.datatable__row:last-of-type {
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.datatable__row input,
+.datatable__row textarea {
+    display: none;
+}
+.datatable__row .datatable__button--editing {
+    display: none;
+}
+.datatable__row--editing input,
+.datatable__row--editing textarea {
+    display: block;
+}
+.datatable__row--editing .datatable__field-value {
+    display: none;
+}
+.datatable__row--editing .datatable__button {
+    display: none;
+}
+.datatable__row--editing .datatable__button--editing,
+.datatable__row--editing .datatable__button--card-creation {
+    display: block;
+}
+.datatable__row--add input,
+.datatable__row--add textarea {
+    display: block;
+}
+.datatable__field-value {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.datatable__row-section {
+    border: none;
+    margin: 0;
+    padding: 10px;
+    flex-grow: 1;
+}
+.datatable__row-section--button-section,
+.datatable__row-section--trello-section {
+    margin-left: auto;
+    align-self: center;
+    flex-shrink: 1;
+    flex-grow: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.datatable__input-label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin: 5px auto;
+    font-weight: 500;
+    letter-spacing: 0.6px;
+}
+.datatable__button {
+    color: #FFFFFF;
+    background-color: #7cbfb6;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 8px 12px;
+    font-size: 12px;
+    min-width: 120px;
+    line-height: 1.25;
+    border-radius: 4px;
+}
+.datatable__select {
+    display: block;
+    margin-bottom: 10px;
+}
+.datatable__report-container:empty {
+    position: relative;
+}
+.datatable__report-container:empty::after {
+    content: 'Currently, there is no data available.';
+}
+.template {
+    display: none;
+}
+td.very_good {
+    background: #7cbfb6;
+}
+td.good {
+    background: #d2ffe1;
+}
+td.moderate {
+    background: #ffffe3;
+}
+td.sufficient {
+    background: #fee1d1;
+}
+td.bad {
+    background: #ffbfcf;
+}
+td.very_bad {
+    background: #f092a5;
+}
+.reports_table, th, td {
+    border: 1px solid black;
+}
+.legend_table td {
+    border: none;
+}
+.msg {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: none;
+}
+.message {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    padding: 30px;
+    text-align: center;
+    color: #2c2928;
+    opacity: 0;
+    transition: top 0.3s cubic-bezier(0.31, 0.25, 0.5, 1.5), opacity 0.2s ease-in-out;
+}
+.message p:nth-child(2) {
+    font-size: 2.3rem;
+    margin: 40px 0px 0px 0px;
+}
+.message #ok_button {
+    position: relative;
+    color: white;
+    border: 0;
+    background: #7cbfb6;
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    font-size: 1.2rem;
+    transition: background 0.2s ease;
+    outline: none;
+}
+.message #ok_button:hover {
+    background: #7cbfb6;
+}
+.message #ok_button:active {
+    background: #d7ffff;
+}
+.message_shown {
+    top: 150px;
+    opacity: 1;
+}
