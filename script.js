@@ -86,22 +86,22 @@ $(document).ready(function() {
         var trhead = "<td><b>City</b></td>";
         const reports = report.entries;
         paramCodes.forEach(paramCode => trhead = trhead + "<td><b>" + paramCode.description + "</b>" + "<br>(μg/m3)" + "</td>");
-        $("#reports-table-head").append("<tr>" + trhead + "</tr>");
+        $("#reports-table-head").append("<tr>").append(trhead + "</>");
 
         $.each(reports, function(index, value) {
             let tr = $('<tr />');
-            alert(value.cityName);
-            tr.append("<td><b>" + value.cityName + "</b></td>");
+            let clazz = value.index.toLowerCase();
+            tr.append("<td class=" + clazz + "><b>" + value.cityName + "</b></td>");
             paramCodes.forEach(paramCode => {
-                tr.append(getValueClass(value.values[paramCode.code], value.index));
+                tr.append(getValueClass(value.values[paramCode.code], clazz));
             });
             $("#reports-table-body").append(tr);
         });
     }
 
-    function getValueClass(value, level) {
-        if (value === 'NaN') return "<td class='undefined'></td>"
-        return "<td class='" + level.toLowerCase() + "'>" + roundTo(value) + "</td>";
+    function getValueClass(value, clazz) {
+        if (value === 'NaN' || value === undefined) return "<td class='" + clazz + "'> - </td>";
+        return "<td class='" + clazz + "'>" + roundTo(value) + "</td>";
     }
 
     function validateEmail(email) {
