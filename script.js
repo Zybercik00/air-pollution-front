@@ -47,8 +47,8 @@ $(document).ready(function() {
     function getOption(city) {
         return $('<option>')
             .addClass('city-select__option')
-            .val(city.id)
-            .text(city.cityName);
+            .val(city.name)
+            .text(city.name);
     }
 
     function handleSubscribeRequest(event) {
@@ -57,7 +57,7 @@ $(document).ready(function() {
         var emailField = $(this).find('[name="email"]');
         var email = emailField.val();
         var cityField = $(this).find('[name="city"]');
-        var cityId = cityField.val();
+        var cityName = cityField.val();
 
         validate(email);
 
@@ -71,7 +71,7 @@ $(document).ready(function() {
             dataType: 'json',
             data: JSON.stringify({
                 email: email,
-                cityId: cityId
+                city: cityName
             }),
             complete: function(data) {
                 if (data.status === 200) {
